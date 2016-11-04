@@ -7,8 +7,18 @@ package manchester;
 
 /**
  *
- * @author marlon
+ * @author Caroline Sena / Geovana Franco / Marlon Prudente
  */
 public class manchester {
+    
+    Integer encode(){
+        
+        return 0;
+    }
+    
+    Integer decode(){
+        
+        return 0;
+    }
     
 }
