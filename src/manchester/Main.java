@@ -8,7 +8,9 @@ package manchester;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+import java.io.PrintStream;
+import java.net.*;
+import java.util.Scanner;
 /**
  *
  * @author Caroline Sena / Geovana Franco / Marlon Prudente
@@ -33,6 +35,9 @@ public class Main {
          }
          System.out.println("");
          */
+        Socket clientSocket = new Socket("127.0.0.1",12345);
+        System.out.println("O cliente se conectou ao servidor!");
+        
         int escolha = 1;
         while (escolha != 0) {
             System.out.println("Escolha:\n1 - Codificação\n2 - Decodificação\n0 - Sair");
@@ -57,6 +62,10 @@ public class Main {
                         System.out.print(ent[i]);
                     }
                     System.out.println("\nSaida codificada");
+                    
+                    ///*Lê do Teclado e envia para o servidor*/
+                    PrintStream saida = new PrintStream(clientSocket.getOutputStream());
+                    
                     for (int i = 0; i < sai.length; i++) {
                         System.out.print(sai[i]);
                     }
