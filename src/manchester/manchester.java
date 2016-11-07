@@ -12,7 +12,7 @@ package manchester;
 public class manchester {
     Integer[] encode(Integer entrada[]){
         Integer saida[]=new Integer[entrada.length*2];
-        System.out.println("tam "+entrada.length);
+        // System.out.println("tam "+entrada.length);
         int bid = 0,nbid = 0,real = 0, bit = 0, nbit =0;
         
         for (int i = 0; i < entrada.length; i++)
@@ -35,7 +35,7 @@ public class manchester {
                 bit = 0; // 
                 nbit = 1;
             }
-            System.out.println("[encode] " + real + " [" + bit + nbit + "]" );
+            //System.out.println("[encode] " + real + " [" + bit + nbit + "]" );
             saida[bid] = bit;
             saida[nbid] = nbit;
         }
@@ -68,7 +68,7 @@ public class manchester {
             }else if(bit == 1 && nbit == 0)
                 real = 0;
             
-            System.out.println("[decode] bit: " + bit + nbit + " [" + real + "]");
+            //System.out.println("[decode] bit: " + bit + nbit + " [" + real + "]");
             
             saida[i] = real;
         }
