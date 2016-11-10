@@ -26,6 +26,7 @@ public class Test {
         for (int i = 0; i < binario.length(); i++) {
             System.out.print(array[i]);
         }
+        System.out.println("");
         //Characteres da string textoEmNumero para Binário
         System.out.println("abcd em Binario: ");
         for (char c : textoEmNumero.toCharArray()) {
