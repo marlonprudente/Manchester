@@ -12,17 +12,25 @@ package client;
 public class Test {
 
     public static void main(String[] args) {
-        Integer binario, inteiro;
+        String binario, textoEmNumero;
         binario = Integer.toBinaryString(100);
-        String numeroEmTexto = Integer.toString(binario);
-        
-        int[] array = new int[numeroEmTexto.length()];
-        for (int i = 0; i < numeroEmTexto.length(); i++) {
-            array[i] = Character.getNumericValue(numeroEmTexto.charAt(i));
+        textoEmNumero = "abcd";
+
+        int[] array = new int[binario.length()];
+        for (int i = 0; i < binario.length(); i++) {
+            array[i] = Character.getNumericValue(binario.charAt(i));
             System.out.println("Posicao " + i + ": " + array[i]);
         }
-        
+        //Binario do Nro. 100
         System.out.println("Nro 100: ");
+        for (int i = 0; i < binario.length(); i++) {
+            System.out.print(array[i]);
+        }
+        //Characteres da string textoEmNumero para Binário
+        System.out.println("abcd em Binario: ");
+        for (char c : textoEmNumero.toCharArray()) {
+            System.out.println(c + " = " + Integer.toBinaryString((c)));
+        }
 
     }
 }
