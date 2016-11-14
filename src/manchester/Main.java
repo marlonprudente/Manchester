@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         Integer ent[], sai[];
-        manchester m = new manchester();
+        Manchester m = new Manchester();
         /*Integer entrada[] = {1, 0, 1, 0, 0};
          Integer saida[];
          Integer saida2[];

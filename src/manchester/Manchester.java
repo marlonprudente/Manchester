@@ -9,7 +9,7 @@ package manchester;
  *
  * @author Caroline Sena / Geovana Franco / Marlon Prudente
  */
-public class manchester {
+public class Manchester {
     Integer[] encode(Integer entrada[]){
         Integer saida[]=new Integer[entrada.length*2];
         // System.out.println("tam "+entrada.length);

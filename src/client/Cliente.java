@@ -7,6 +7,7 @@ package client;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
+import manchester.*;
 /**
  * @author Marlon Prudente
  * @author Mateus Oliveira
@@ -17,6 +18,11 @@ public class Cliente {
         
         String sentence;
         String modifiedSentence;
+        /**Variaveis para o codificador Manchester**/
+        Manchester m = new Manchester();
+        Integer ent[], binario; 
+
+        /*==============================*/
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
         
         /*Ip do Servidor e porta*/
@@ -25,9 +31,10 @@ public class Cliente {
         
         Scanner teclado = new Scanner(System.in);
         PrintStream saida = new PrintStream(clientSocket.getOutputStream());
-     
+
         while (teclado.hasNextLine()) {
-            saida.println(teclado.nextLine());
+            //System.out.println("Valor Binario: " + binario);
+            saida.println(teclado.next());
         }
         
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
