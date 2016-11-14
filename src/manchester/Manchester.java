@@ -10,7 +10,7 @@ package manchester;
  * @author Caroline Sena / Geovana Franco / Marlon Prudente
  */
 public class Manchester {
-    public static Integer[] encode(Integer entrada[]){
+    public Integer[] encode(Integer entrada[]){
         Integer saida[]=new Integer[entrada.length*2];
         // System.out.println("tam "+entrada.length);
         int bid = 0,nbid = 0,real = 0, bit = 0, nbit =0;
@@ -43,7 +43,7 @@ public class Manchester {
         return saida;
     }
     
-    public static Integer[] decode(Integer entrada[]){
+    public  Integer[] decode(Integer entrada[]){
         Integer saida[]= new Integer[entrada.length/2];
         int real = 0;
         if ((entrada.length % 2) != 0)
