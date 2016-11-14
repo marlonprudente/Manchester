@@ -18,7 +18,7 @@ public class Test {
         binario = Integer.toBinaryString(100);
         Integer ent[], bin, sai[];
         Manchester m = new Manchester();
-        textoEmNumero = "abcd";
+        textoEmNumero = "abcd12345";
 
         int[] array = new int[binario.length()];
         for (int i = 0; i < binario.length(); i++) {

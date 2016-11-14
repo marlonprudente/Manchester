@@ -6,6 +6,7 @@
 package manchester;
 
 import java.util.Arrays;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.Arrays;
 public class BinaryConverter {
 
     public String BinaryToText(Integer[] binario) {
-        int letras = (binario.length / 7);
+        int letras = (binario.length / 8);
         char c[] = new char[binario.length];
         String nome;
         int j = 0, k = 0, l = 1, m = 0;
@@ -23,7 +24,7 @@ public class BinaryConverter {
 
         while (k != binario.length) {
 
-            for (j = 0; j <= 6; j++) {
+            for (j = 0; j < 8; j++) {
                 op += binario[k] * l;
                 //System.out.println(binario[k] + "*" + l + "=" + op);
                 l = 2 * l;
@@ -54,17 +55,19 @@ public class BinaryConverter {
     }
 
     public Integer[] textToBinary(String texto) {
-        int op = texto.length() * 7; //numero de characteres * numero de bits
-        Integer bin;//Aqui é necessário definir o tamanho para 8 caracteres (ainda não fiz)
+        int op = texto.length() * 8; //numero de characteres * numero de bits
+        //Integer bin;//Aqui é necessário definir o tamanho para 8 caracteres (ainda não fiz)
         Integer[] array = new Integer[op];
         int j = 0, k = 0;
 
         for (char c : texto.toCharArray()) {
             //Agora e preciso dividir cada caractere em uma posicao do vetor para o manchester
-            bin = Integer.parseInt(Integer.toBinaryString((c)));
+            System.out.println("Binário Correto" + StringUtils.leftPad(Integer.toBinaryString((c)), 8, "0"));
+           // bin = Integer.parseInt(StringUtils.leftPad(Integer.toBinaryString((c)), 8, "0"));            
+            //System.out.println("BIN = " + bin);
             //Aqui estou transformando em um vetorzão com todos os 0's e 1's
-            while (j != 7) {
-                array[k] = Character.getNumericValue(bin.toString().charAt(j));
+            while (j != 8) {
+                array[k] = Character.getNumericValue(StringUtils.leftPad(Integer.toBinaryString((c)), 8, "0").charAt(j));
                 j++;
                 k++;
             }
