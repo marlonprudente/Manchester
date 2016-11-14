@@ -16,7 +16,7 @@ public class Test {
         //BinaryConverter binconvert = null;
         String binario, textoEmNumero;
         binario = Integer.toBinaryString(100);
-        Integer ent[], bin;
+        Integer ent[], bin, sai[];
         Manchester m = new Manchester();
         textoEmNumero = "abcd";
 
@@ -41,22 +41,24 @@ public class Test {
         array2 = bc.textToBinary(textoEmNumero);
         System.out.println("Antes do Manchester: ");
         for (int i = 0; i < array2.length; i++) {
-            System.out.print(array2[i] + "-");
+            System.out.print(array2[i] + "");
 
         }
         System.out.println("");
-        System.out.println("String ===>" + bc.BinaryToText(array2));
+        System.out.println("String normal ===>" + bc.BinaryToText(array2));
         //Utilizando o Manchester
         ent = m.encode(array2);
         //testando o Manchester
         System.out.println("Depois do Manchester: ");
-        for (int i = 0; i < array2.length; i++) {
-            System.out.print(ent[i] + "-");
+        for (int i = 0; i < ent.length; i++) {
+            System.out.print(ent[i] + "");
         }
         System.out.println("");
-        System.out.println("String ===>" + bc.BinaryToText(ent));
+        System.out.println("String encode===>" + bc.BinaryToText(ent));
         System.out.println("");
         
+        sai = m.decode(ent);
+        System.out.println("String decode ===>" + bc.BinaryToText(sai));
         //Implementar agora a melhor forma de transformar o vetor de binarios em strings
 
     }
