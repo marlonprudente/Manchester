@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package client;
+import manchester.*;
 
 /**
  *
@@ -12,6 +13,7 @@ package client;
 public class Test {
 
     public static void main(String[] args) {
+        BinaryConverter binconvert = null;
         String binario, textoEmNumero;
         binario = Integer.toBinaryString(100);
         textoEmNumero = "abcd";
@@ -31,6 +33,8 @@ public class Test {
         System.out.println("abcd em Binario: ");
         for (char c : textoEmNumero.toCharArray()) {
             System.out.println(c + " = " + Integer.toBinaryString((c)));
+            //binconvert.BinaryToText(Integer.toBinaryString((c)));
+            
         }
 
     }

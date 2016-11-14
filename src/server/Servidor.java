@@ -16,20 +16,30 @@ import java.util.Scanner;
  */
 public class Servidor {
 
-    public static void main(String[] args) throws Exception {  
-        
-        ServerSocket SocketServidor = new ServerSocket(12345);        
-        System.out.println("Porta 12345 aberta!");
-        
-        while (true) {
-            Socket connectionSocketCliente = SocketServidor.accept();            
-            
-            /*Aqui deve iniciar uma Thread para receber mais de uma conexão*/
-            ThreadTratamento tt = new ThreadTratamento(connectionSocketCliente);
-            Thread t = new Thread(tt);
-            t.start();         
-            
-        }
+    public static void main(String[] args) throws Exception {
+        String clientSentence;
+        String capitalizedSentence;
 
+        ServerSocket SocketServidor = new ServerSocket(12345);
+        System.out.println("Porta 12345 aberta!");
+
+        while (true) {
+            Socket connectionSocketCliente = SocketServidor.accept();
+            System.out.println("Nova conexão com o cliente " + connectionSocketCliente.getInetAddress().getHostAddress());
+
+            Scanner s = new Scanner(connectionSocketCliente.getInputStream());
+            while (s.hasNextLine()) {
+                System.out.println(s.nextLine());
+            }
+            s.close();
+            
+            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocketCliente.getInputStream()));
+            DataOutputStream outToClient = new DataOutputStream(connectionSocketCliente.getOutputStream());
+
+            clientSentence = inFromClient.readLine();
+            capitalizedSentence = clientSentence.toUpperCase();
+            outToClient.writeBytes(capitalizedSentence);
+
+        }
     }
 }
