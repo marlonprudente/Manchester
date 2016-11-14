@@ -35,41 +35,29 @@ public class Test {
 
         //Characteres da string textoEmNumero para Binário
         System.out.println("abcd em Binario: ");
-        int op = textoEmNumero.length() * 7;
-        System.out.println("=>" + op);
-        Integer[] array2 = new Integer[op];
-        int j = 0, k = 0;
-        for (char c : textoEmNumero.toCharArray()) {
-            //System.out.println(c + " = " + Integer.toBinaryString((c)));
-            //Aqui é possivel ver o numero binario gerado pela string
-            // System.out.println("Inteiro: " + Integer.parseInt(Integer.toBinaryString((c))));
-
-            //Agora e preciso dividir cada caractere em uma posicao do vetor para o manchester
-            bin = Integer.parseInt(Integer.toBinaryString((c)));
-            
-            //Aqui estou transformando em um vetorzão com todos os caracteres
-            while (j != 7) {
-                array2[k] = Character.getNumericValue(bin.toString().charAt(j));
-                j++;
-                k++;
-            }
-            j = 0;
-
-        }
-
+        Integer[] array2;
+        //Coloquei tudo em uma classe que faz a conversão da String em um vetorzão de 0's e 1's
+        BinaryConverter bc = new BinaryConverter();
+        array2 = bc.textToBinary(textoEmNumero);
         System.out.println("Antes do Manchester: ");
-        for (int i = 0; i < op; i++) {
-            System.out.print(array2[i] + " - ");
+        for (int i = 0; i < array2.length; i++) {
+            System.out.print(array2[i] + "-");
+
         }
         System.out.println("");
+        System.out.println("String ===>" + bc.BinaryToText(array2));
         //Utilizando o Manchester
         ent = m.encode(array2);
         //testando o Manchester
         System.out.println("Depois do Manchester: ");
-        for (int i = 0; i < op; i++) {
-            System.out.print(ent[i] + " - ");
+        for (int i = 0; i < array2.length; i++) {
+            System.out.print(ent[i] + "-");
         }
         System.out.println("");
+        System.out.println("String ===>" + bc.BinaryToText(ent));
+        System.out.println("");
+        
+        //Implementar agora a melhor forma de transformar o vetor de binarios em strings
 
     }
 }
