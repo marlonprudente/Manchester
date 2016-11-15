@@ -11,20 +11,26 @@ import manchester.*;
  * @author Marlon Prudente <marlonoliveira@alunos.utfpr.edu.br>
  */
 public class Test {
-
+    /**
+     * Método Principal da classe Test
+     * Classe usada para testes do Manchester, sem necessdade de Cliente/Servidor
+     * Utilizada para testes dos métodos necessários para implementar o Manchester.
+     */
     public static void main(String[] args) {
-        //BinaryConverter binconvert = null;
         String binario, textoEmNumero;
         binario = Integer.toBinaryString(100);
         Integer ent[], bin, sai[];
         Manchester m = new Manchester();
         textoEmNumero = "abcd12345";
-
+        
+        //Aqui se vê o valor de cada bit do numero 100
         int[] array = new int[binario.length()];
         for (int i = 0; i < binario.length(); i++) {
             array[i] = Character.getNumericValue(binario.charAt(i));
             System.out.println("Posicao " + i + ": " + array[i]);
+              
         }
+        
         //Binario do Nro. 100
         System.out.println("Nro 100: ");
         for (int i = 0; i < binario.length(); i++) {
@@ -55,11 +61,9 @@ public class Test {
         }
         System.out.println("");
         System.out.println("String encode===>" + bc.BinaryToText(ent));
-        System.out.println("");
-        
+        System.out.println("");        
         sai = m.decode(ent);
         System.out.println("String decode ===>" + bc.BinaryToText(sai));
-        //Implementar agora a melhor forma de transformar o vetor de binarios em strings
 
     }
 }

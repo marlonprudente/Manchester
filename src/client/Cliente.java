@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Este sotfware foi feito para a UTFPR - Campus Curitiba;
+ * O Código é livre para uso não comercial;
+ * Desenvolvido através do Netbeans IDE.
  */
 package client;
 
@@ -12,14 +12,14 @@ import manchester.BinaryConverter;
 import manchester.Manchester;
 
 /**
- * @author Marlon Prudente
- * @author Mateus Oliveira
+ * @author Marlon Prudente <marlonoliveira@alunos.utfpr.edu.br>
+ * 
  */
 public class Cliente {
     /**
-     * 
-     * @param args
-     * @throws Exception 
+     * Método principal da Classe Cliente.
+     * Usado para Iniciar uma conexão com o Servidor.
+     *  
      */
     public static void main(String[] args) throws Exception {
 
@@ -52,7 +52,6 @@ public class Cliente {
         }
 
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-
         BufferedReader InFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
         sentence = inFromUser.readLine();

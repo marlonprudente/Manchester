@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Este sotfware foi feito para a UTFPR - Campus Curitiba;
+ * O Código é livre para uso não comercial;
+ * Desenvolvido através do Netbeans IDE.
  */
 package manchester;
 
@@ -10,7 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author marlon
+ * @author Marlon Prudente <marlonoliveira@alunos.utfpr.edu.br>
  */
 public class BinaryConverter {
     /**
@@ -24,20 +24,20 @@ public class BinaryConverter {
         String nome;
         int j = 0, k = 0, l = 1, m = 0;
         int op = 0;
-        //System.out.println("BL: " + binario.length);
-
+        //Aqui, estou percorrendo todo o vetorzão de 0's e 1's e separando 8 bits em números decimais
         while (k != binario.length) {
-
+            //For é usado para percorrer o vetor de 8 em 8 posições e armazenar em OP.
             for (j = 0; j < 8; j++) {
                 op += binario[k] * l;
-                //System.out.println(binario[k] + "*" + l + "=" + op);
+                //L irá variar de 1|2|4|8|16|32|64|128, usada para resgatar o valor decimal dos 8 bits do vetor
                 l = 2 * l;
+                //K é a única variável que não é zerada, pois ela está percorrendo todo o vetorzão.
                 k++;
             }
-
-            //System.out.println("OP = " + op);
+            //Aqui estou convertendo decimal para ASCII (A conversão é feita pelo próprio compilador)
             c[m] = (char) op;
             m++;
+            //Feito o resgate do charactere, é preciso zerar as variáveis usadas dentro do FOR, para percorrer as próximas 8 posições
             op = 0;
             l = 1;
 
@@ -50,11 +50,10 @@ public class BinaryConverter {
             aux[i] = c[tam];
         }
         //Aqui eu estou copiando so a parte que interessa do vetor
-        c = Arrays.copyOfRange(aux, binario.length - letras, binario.length);
-        
+        //Pois o tamanho do Vetor está maior, pois foi preciso para que se pudesse resgatar o código ASCII.
+        c = Arrays.copyOfRange(aux, binario.length - letras, binario.length);        
         //aqui estou transformando o vetor de char em uma string
-        nome = String.valueOf(c);
-        
+        nome = String.valueOf(c);        
         return nome;
     }
     /**
@@ -64,25 +63,24 @@ public class BinaryConverter {
      */
     public Integer[] textToBinary(String texto) {
         int op = texto.length() * 8; //numero de characteres * numero de bits
-        //Integer bin;//Aqui é necessário definir o tamanho para 8 caracteres (ainda não fiz)
         Integer[] array = new Integer[op];
         int j = 0, k = 0;
-
+        
+        //Loop principal, ele irá percorrer todos os caractéres da String texto
         for (char c : texto.toCharArray()) {
-            //Agora e preciso dividir cada caractere em uma posicao do vetor para o manchester
-            //System.out.println("Binário Correto" + StringUtils.leftPad(Integer.toBinaryString((c)), 8, "0"));
-           // bin = Integer.parseInt(StringUtils.leftPad(Integer.toBinaryString((c)), 8, "0"));            
-            //System.out.println("BIN = " + bin);
             //Aqui estou transformando em um vetorzão com todos os 0's e 1's
             while (j != 8) {
+                //Aqui estou recebendo o valor binário dos caracteres
+                //Utilizando A Biblioteca commons-lang3-3.5, estou preenchendo com 0's a esquerda, até completar 8 bits
+                //Pois se não usar algo para preencher com 0's a esquerda, o tamanho representado fica variando.
                 array[k] = Character.getNumericValue(StringUtils.leftPad(Integer.toBinaryString((c)), 8, "0").charAt(j));
                 j++;
                 k++;
             }
             j = 0;
-
         }
         //aqui estou invertendo a ordem da string
+        //Pois caso não seja invertido, ficará armazenado ao contrário
         int tam = array.length;
         Integer[] aux = new Integer[op];
         for (int i = 0; i < aux.length; i++) {
