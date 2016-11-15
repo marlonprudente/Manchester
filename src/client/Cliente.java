@@ -16,7 +16,11 @@ import manchester.Manchester;
  * @author Mateus Oliveira
  */
 public class Cliente {
-
+    /**
+     * 
+     * @param args
+     * @throws Exception 
+     */
     public static void main(String[] args) throws Exception {
 
         String sentence;

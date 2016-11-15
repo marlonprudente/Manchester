@@ -17,7 +17,11 @@ import manchester.Manchester;
  * @author Mateus Oliveira
  */
 public class Servidor {
-
+    /**
+     * 
+     * @param args
+     * @throws Exception 
+     */
     public static void main(String[] args) throws Exception {
         String clientSentence;
         String capitalizedSentence;
