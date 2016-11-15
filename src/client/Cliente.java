@@ -8,6 +8,7 @@ package client;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
+import manchester.BinaryConverter;
 import manchester.Manchester;
 
 /**
@@ -24,7 +25,8 @@ public class Cliente {
          * Variaveis para o codificador Manchester*
          */
         Manchester m = new Manchester();
-        Integer ent[], binario[] = null;
+        Integer array[], criptografado[];
+        BinaryConverter bc = new BinaryConverter();
         /*==============================*/
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
 
@@ -34,11 +36,14 @@ public class Cliente {
         //Aqui esta a variavel que estara lendo o teclado
         Scanner teclado = new Scanner(System.in);
         //Aqui esta a variavel que enviara para o servidor
+        
         PrintStream saida = new PrintStream(clientSocket.getOutputStream());
 
         while (teclado.hasNextLine()) {
+                array = bc.textToBinary(teclado.nextLine());
                //O comando nextLine le o que foi digitado depois do enter
-                saida.println(teclado.nextLine());
+               criptografado = m.encode(array);
+                saida.println(bc.BinaryToText(criptografado));
 
         }
 

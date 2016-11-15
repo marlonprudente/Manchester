@@ -62,7 +62,7 @@ public class BinaryConverter {
 
         for (char c : texto.toCharArray()) {
             //Agora e preciso dividir cada caractere em uma posicao do vetor para o manchester
-            System.out.println("Binário Correto" + StringUtils.leftPad(Integer.toBinaryString((c)), 8, "0"));
+            //System.out.println("Binário Correto" + StringUtils.leftPad(Integer.toBinaryString((c)), 8, "0"));
            // bin = Integer.parseInt(StringUtils.leftPad(Integer.toBinaryString((c)), 8, "0"));            
             //System.out.println("BIN = " + bin);
             //Aqui estou transformando em um vetorzão com todos os 0's e 1's
