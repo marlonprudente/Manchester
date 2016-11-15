@@ -10,6 +10,11 @@ package manchester;
  * @author Caroline Sena / Geovana Franco / Marlon Prudente
  */
 public class Manchester {
+    /**
+     * Metodo encode é usado para Codificar o vetor de binarios
+     * @param entrada (Vetor de Binarios que representa os dados de entrada).
+     * @return saida (valor codificado, de tamanho duas vezes maior que a entrada).
+     */
     public Integer[] encode(Integer entrada[]){
         Integer saida[]=new Integer[entrada.length*2];
         // System.out.println("tam "+entrada.length);
@@ -42,6 +47,11 @@ public class Manchester {
 
         return saida;
     }
+    /**
+     * Metodo decode é usado para decodificar o vetor codificado de binarios
+     * @param entrada (valor codificado, de tamanho duas vezes maior que o tamanho original)
+     * @return saida (Vetor de Binarios que representa os dados originais de entrada)
+     */
     
     public  Integer[] decode(Integer entrada[]){
         Integer saida[]= new Integer[entrada.length/2];

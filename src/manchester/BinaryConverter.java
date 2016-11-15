@@ -13,7 +13,11 @@ import org.apache.commons.lang3.StringUtils;
  * @author marlon
  */
 public class BinaryConverter {
-
+    /**
+     * Este método transforma um vetor que contém uma representação binária em String.
+     * @param binario (Vetor de entrada, cada posição representa um bit).
+     * @return nome (String formada pelo conjunto de binario do vetor de entrada).
+     */
     public String BinaryToText(Integer[] binario) {
         int letras = (binario.length / 8);
         char c[] = new char[binario.length];
@@ -53,7 +57,11 @@ public class BinaryConverter {
         
         return nome;
     }
-
+    /**
+     * Este método transforma uma String em um vetor que contém sua representação binária
+     * @param texto (String de entrada).
+     * @return array (Vetor do Tipo Inteiro, cada posição representa um bit da String de entrada).
+     */
     public Integer[] textToBinary(String texto) {
         int op = texto.length() * 8; //numero de characteres * numero de bits
         //Integer bin;//Aqui é necessário definir o tamanho para 8 caracteres (ainda não fiz)
