@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Este sotfware foi feito para a UTFPR - Campus Curitiba;
+ * O Código é livre para uso não comercial;
+ * Desenvolvido através do Netbeans IDE.
  */
 package server;
 
@@ -13,11 +13,15 @@ import manchester.Manchester;
 
 /**
  *
- * @author Marlon Prudente
- * @author Mateus Oliveira
+ * @author Marlon Prudente <marlonoliveira@alunos.utfpr.edu.br>
+ * 
  */
 public class Servidor {
-
+    /**
+     * Método principal da Classe Servidor
+     * Usado para Iniciar uma conexão com o cliente
+     * Limitado para somente uma conexão simultânea 
+     */
     public static void main(String[] args) throws Exception {
         String clientSentence;
         String capitalizedSentence;
@@ -29,8 +33,8 @@ public class Servidor {
         Integer array[], decriptografado[];
         BinaryConverter bc = new BinaryConverter();
         /*==============================*/
-        System.out.println("Porta 12345 aberta!");
         
+        System.out.println("Porta 12345 aberta!");        
         
         while (true) {
             //Aqui a conexão é feita, o servidor recebe um cliente somente, e se obtiver sucesso, mostra a mensagem de conexão
@@ -38,12 +42,16 @@ public class Servidor {
             System.out.println("Nova conexão com o cliente: " + connectionSocketCliente.getInetAddress().getHostAddress());
             //Aqui o servidor sempre estará esperando dados do cliente, e exibe o dado na tela
             Scanner s = new Scanner(connectionSocketCliente.getInputStream());
+            //Loop Principal, onde o Servidor estará sempre esperando envios do Cliente.
             while (s.hasNextLine()) {
                 array = bc.textToBinary(s.nextLine());
+                //Aqui é possivel ver o texto criptografado pelo Manchester
                 System.out.println("Criptografado: " + bc.BinaryToText(array));
                 decriptografado = m.decode(array);
+                //Aqui é possivel ver o resultado após a descriptografia do Manchester
                 System.out.println("Decriptografado: " + bc.BinaryToText(decriptografado));
             }
+            
             s.close();
             //S é a variavel que esta recebendo strings do cliente, deve ser encerrada sempre que a conexao encerrar
             

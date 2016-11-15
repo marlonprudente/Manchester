@@ -1,13 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Este sotfware foi feito para a UTFPR - Campus Curitiba;
+ * O Código é livre para uso não comercial;
+ * Desenvolvido através do Netbeans IDE.
  */
 package manchester;
 
 /**
  *
- * @author Caroline Sena / Geovana Franco / Marlon Prudente
+ * @author Geovana Franco
  */
 public class Manchester {
     /**
