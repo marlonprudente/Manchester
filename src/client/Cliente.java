@@ -31,17 +31,14 @@ public class Cliente {
         /*Ip do Servidor e porta*/
         Socket clientSocket = new Socket("127.0.0.1", 12345);
         System.out.println("O cliente se conectou ao servidor!");
-
+        //Aqui esta a variavel que estara lendo o teclado
         Scanner teclado = new Scanner(System.in);
+        //Aqui esta a variavel que enviara para o servidor
         PrintStream saida = new PrintStream(clientSocket.getOutputStream());
 
         while (teclado.hasNextLine()) {
-            for (char c : teclado.nextLine().toCharArray()) {                
-                System.out.println(c + " = " + Integer.toBinaryString((c)));
-                binario[c] = Integer.parseInt(Integer.toBinaryString((c)));
-                ent = m.encode(binario);
-                saida.println(c);
-            }
+               //O comando nextLine le o que foi digitado depois do enter
+                saida.println(teclado.nextLine());
 
         }
 

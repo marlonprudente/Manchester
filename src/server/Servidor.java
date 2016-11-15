@@ -31,7 +31,7 @@ public class Servidor {
             //Aqui o servidor sempre estará esperando dados do cliente, e exibe o dado na tela
             Scanner s = new Scanner(connectionSocketCliente.getInputStream());
             while (s.hasNextLine()) {
-                System.out.println(s.next());
+                System.out.println(s.nextLine());
             }
             s.close();
             //S é a variavel que esta recebendo strings do cliente, deve ser encerrada sempre que a conexao encerrar
