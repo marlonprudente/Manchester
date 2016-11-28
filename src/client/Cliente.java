@@ -13,13 +13,14 @@ import manchester.Manchester;
 
 /**
  * @author Marlon Prudente <marlonoliveira@alunos.utfpr.edu.br>
- * 
+ *
  */
 public class Cliente {
+
     /**
-     * Método principal da Classe Cliente.
-     * Usado para Iniciar uma conexão com o Servidor.
-     *  
+     * Método principal da Classe Cliente. Usado para Iniciar uma conexão com o
+     * Servidor.
+     *
      */
     public static void main(String[] args) throws Exception {
 
@@ -40,14 +41,23 @@ public class Cliente {
         //Aqui esta a variavel que estara lendo o teclado
         Scanner teclado = new Scanner(System.in);
         //Aqui esta a variavel que enviara para o servidor
-        
+
         PrintStream saida = new PrintStream(clientSocket.getOutputStream());
 
         while (teclado.hasNextLine()) {
-                array = bc.textToBinary(teclado.nextLine());
-               //O comando nextLine le o que foi digitado depois do enter
-               criptografado = m.encode(array);
-                saida.println(bc.BinaryToText(criptografado));
+            array = bc.textToBinary(teclado.nextLine());
+            System.out.println("Antes de Criptografar: ");
+            for (int i : array) {
+                System.out.print(array[i]);
+            }
+            //O comando nextLine le o que foi digitado depois do enter
+            criptografado = m.encode(array);
+            System.out.println("");
+            System.out.println("Depois de Criptografar: ");
+            for (int i : criptografado) {
+                System.out.print(criptografado[i]);
+            }
+            saida.println(bc.BinaryToText(criptografado));
 
         }
 
